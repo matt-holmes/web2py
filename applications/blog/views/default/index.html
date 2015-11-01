@@ -1,0 +1,11 @@
+{{extend 'layout.html'}}
+	{{for row in rows:}}
+		<div id="content" class="content-post">
+			<h1><a href="{{=URL('show_post',args=row.id)}}">{{=row.title}}</a></h1>
+			<p>{{=row.body}}</p>
+			{{if row.hasMoreToRead:}}
+				<span class="read-more"><a href="{{=URL('show_post',args=row.id)}}">Read More</a></span>
+			{{pass}}
+		</div>
+	{{pass}}
+
