@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.NameError'> global name 'true' is not defined"
+p3
+sS'layer'
+p4
+S'/home/matt/Dev/web2py/applications/Library_Samples/controllers/invite_tool.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n# this file is released under public domain and you can use without limitations\n\n#########################################################################\n## This is a sample controller\n## - index is the default action of any application\n## - user is required for authentication and authorization\n## - download is for downloading files uploaded in the db (does streaming)\n#########################################################################\n\ndef index():\n    """\n    example action using the internationalization operator T and flash\n    rendered by views/default/index.html or views/generic.html\n\n    if you need a simple wiki simply replace the two lines below with:\n    return auth.wiki()\n    """\n    response = true\n    return response\n\nresponse._vars=response._caller(index)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/matt/Dev/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/matt/Dev/web2py/applications/Library_Samples/controllers/invite_tool.py", line 22, in <module>\n  File "/home/matt/Dev/web2py/gluon/globals.py", line 412, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/matt/Dev/web2py/applications/Library_Samples/controllers/invite_tool.py", line 19, in index\n    response = true\nNameError: global name \'true\' is not defined\n'
+p11
+s.

@@ -58,7 +58,7 @@ function ReservationsViewModel(){
 }
 
 
-//ko.applyBindings(new ReservationsViewModel());
+ko.applyBindings(new ReservationsViewModel());
 
 function WebmailViewModel() {
 	var self = this;
@@ -73,7 +73,7 @@ function WebmailViewModel() {
 
 };
 
-ko.applyBindings(new WebmailViewModel());
+//ko.applyBindings(new WebmailViewModel());
 
 
 
