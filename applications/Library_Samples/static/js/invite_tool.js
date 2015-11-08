@@ -1,28 +1,37 @@
-function Accounts(){};
-
 function Account(){};
+function Invitee(){};
 
-Accounts.prototype.getAccounts = function() {
+Account.prototype.collection = function() {
 	 return $.get( "invite_tool/getAccountCollection", function( data ) {});
 }
 
-Account.prototype.getAccount = function(id, name){
+Account.prototype.item = function(id, name){
 	var self = this;
 	self.id = id;
 	self.name = name;
 }
 
-function AccountsViewModel(){
+Invitee.prototype.collection = function(account_id) {
+	 return $.get( "invite_tool/getAccountCollection", function( data ) {});
+}
+
+Account.prototype.item = function(id, name){
+	var self = this;
+	self.id = id;
+	self.name = name;
+}
+
+function InviteToolViewModel(){
     var self = this;
-    var accounts = new Accounts;
-    jqxhr = accounts.getAccounts();
-    self.accountsArray = ko.observableArray([]);
     var account = new Account;
+    self.accountsArray = ko.observableArray([]);
+
+	jqxhr = account.collection();
     jqxhr.done(function(data){
     	_.each(data, function(model){
-			self.accountsArray.push(new account.getAccount(model.id, model.name));
+			self.accountsArray.push(new account.item(model.id, model.name));
 		});
     });
 }
 
-ko.applyBindings(new AccountsViewModel());
+ko.applyBindings(new InviteToolViewModel());

@@ -60,3 +60,14 @@ CREATE TABLE accounts(
     time_stamp TIMESTAMP
 );
 success!
+timestamp: 2015-11-08T14:28:02.193707
+CREATE TABLE invitees(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(512),
+    last_name CHAR(512),
+    email CHAR(512)
+);
+success!
+timestamp: 2015-11-08T14:29:02.237557
+ALTER TABLE invitees ADD account_id CHAR(512);
+success!
