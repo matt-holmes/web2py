@@ -4,13 +4,16 @@
 <h2>Invite Tool</h2>
 	<div id="account-container" data-bind="foreach: accountsArray">
 		<div><h4 data-bind="text: name"></h4></div>
-		<div id="invitee-container" data-bind="foreach: inviteeArray">
+		<div id="invitee-container" data-bind="foreach: children">
 			<div><h5 data-bind="text: first_name"></h5></div>
 		</div>
 	</div>
 	
 	<button class="submit">Submit</button>
 </div>
+
+
+
 
 
 
