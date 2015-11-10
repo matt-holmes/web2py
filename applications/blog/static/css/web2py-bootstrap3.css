@@ -321,7 +321,7 @@ input[type=checkbox], input[type=radio] {
     margin-right: 4px;
 }
 
-.content-post {
+.content-post,.account-container,.left-sidebar {
   	max-width: 1000px;
   	margin-top: 25px;
 	margin-right: auto;
@@ -333,6 +333,26 @@ input[type=checkbox], input[type=radio] {
     box-shadow: 0 0 8px 2px #CCBA99;
 	padding: 10px;
 }
+
+.invitee-container{
+  	max-width: 1000px;
+  	margin-top: 25px;
+	margin-right: 50px;
+	margin-left: 50px;
+	margin-bottom: 25px;
+    background-color:  #FFFFFF;
+	padding: 10px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0; 
+}
+
 
 .content-post a{
   	color: #555;

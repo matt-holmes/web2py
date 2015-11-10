@@ -1,15 +1,28 @@
 {{extend 'layout.html'}}
 
 <div class="invite-tool">
-<h2>Invite Tool</h2>
+<h2>Invitation Tool</h2>
 	<div id="account-container" data-bind="foreach: accountsArray">
 		<div><h4 data-bind="text: name"></h4></div>
+		<form class="form-inline">
+	  		<div class="form-group">
+				<label for="first_name">First Name</label>
+				<input type="text" class="form-control" id="first_name">
+	  		</div>
+	  		<div class="form-group">
+				<label for="first_name">Last Name</label>
+				<input type="text" class="form-control" id="first_name">
+	  		</div>
+	  		<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" class="form-control" id="email">
+	  		</div>
+	 		<button type="submit" class="btn btn-default">Add Guest</button>
+		</form>
 		<div id="invitee-container" data-bind="foreach: children">
-			<div><h5 data-bind="text: first_name"></h5></div>
+			<div><h5><span data-bind="text: first_name"></span> <span data-bind="text: last_name"></span> <span data-bind="text: email"></span></h5></div>
 		</div>
 	</div>
-	
-	<button class="submit">Submit</button>
 </div>
 
 

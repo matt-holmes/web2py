@@ -64,3 +64,19 @@ ALTER TABLE blog_post ADD time_stamp TIMESTAMP;
 timestamp: 2015-07-19T15:42:27.033229
 ALTER TABLE blog_post ADD title CHAR(512);
 success!
+timestamp: 2015-11-09T19:26:37.220333
+CREATE TABLE accounts(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    time_stamp TIMESTAMP
+);
+success!
+timestamp: 2015-11-09T19:26:37.430006
+CREATE TABLE invitees(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    account_id CHAR(512),
+    first_name CHAR(512),
+    last_name CHAR(512),
+    email CHAR(512)
+);
+success!

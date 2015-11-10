@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.AttributeError'> "
+p3
+sS'layer'
+p4
+S'/home/matt/Dev/web2py/applications/blog/controllers/invite_tool.py'
+p5
+sS'code'
+p6
+S"\ndef index():\n    return locals()\t\n\t\ndef getAccountCollection():\n\tjson = []\n\trows = db().select(db.accounts.ALL, orderby=db.accounts.name)\n\tfor row in rows:\n\t\tjson.append({'name': row.name, 'id': row.id})\n\t\t\n\treturn response.json(json)\n\t\ndef getInviteeCollection():\n\tjson = []\n\trows = db(db.invitees.account_id.contains(request.args)).select(orderby=db.invitees.first_name)\n\tfor row in rows:\n\t\tjson.append({'id': row.id, 'first_name': row.first_name, 'last_name': row.last_name, 'email': row.email})\n\t\t\n\treturn response.json(json)\n\nresponse._vars=response._caller(getAccountCollection)\n"
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/matt/Dev/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/matt/Dev/web2py/applications/blog/controllers/invite_tool.py", line 21, in <module>\n  File "/home/matt/Dev/web2py/gluon/globals.py", line 412, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/matt/Dev/web2py/applications/blog/controllers/invite_tool.py", line 7, in getAccountCollection\n    rows = db().select(db.accounts.ALL, orderby=db.accounts.name)\n  File "/home/matt/Dev/web2py/gluon/packages/dal/pydal/base.py", line 906, in __getattr__\n    return super(DAL, self).__getattr__(key)\n  File "/home/matt/Dev/web2py/gluon/packages/dal/pydal/helpers/classes.py", line 348, in __getattr__\n    raise AttributeError\nAttributeError\n'
+p11
+s.
