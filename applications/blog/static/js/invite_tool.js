@@ -54,10 +54,9 @@ InviteTool.prototype.viewModel = function(){
 					accountModel.name, 
 					account.childrenArray(accountModel.id)
 				)
-			);				
+			);
 		});
     });
-     
 }
 
 inviteTool = new InviteTool;
