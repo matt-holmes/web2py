@@ -22,18 +22,21 @@ Invitee.prototype.item = function(id, first_name, last_name, email) {
 	this.email = email;
 }
 
-Account.prototype.childrenArray = function(data){
+Account.prototype.childrenArray = function(accountId){
 	var children = [];
 	var invitee = new Invitee;
-	_.each(data, function(inviteeModel){
-		children.push(
-		new invitee.item(
-				inviteeModel.id,
-				inviteeModel.first_name,
-				inviteeModel.last_name,
-				inviteeModel.email
-			)
-		);
+	inviteeData = invitee.collection(accountId);
+	inviteeData.done(function(invData){
+		_.each(invData, function(inviteeModel){
+			children.push(
+				new invitee.item(
+					inviteeModel.id,
+					inviteeModel.first_name,
+					inviteeModel.last_name,
+					inviteeModel.email
+				)
+			);
+		});
 	});
 	return children;
 }
@@ -41,24 +44,20 @@ Account.prototype.childrenArray = function(data){
 InviteTool.prototype.viewModel = function(){
     var self = this;
     var account = new Account;
-   	var invitee = new Invitee;
-	self.accountsArray = ko.observableArray([]);
-	
+	self.accountsArray = ko.observableArray([]).extend({ rateLimit: 500 });
 	accountData = account.collection();
     accountData.done(function(data){
     	_.each(data, function(accountModel){
-			inviteeData = invitee.collection(accountModel.id);
-			inviteeData.done(function(invData){
-				self.accountsArray.push(
-					new account.item(
-						accountModel.id, 
-						accountModel.name, 
-						account.childrenArray(invData)
-					)
-				);	
-			});		
+			self.accountsArray.push(
+				new account.item(
+					accountModel.id, 
+					accountModel.name, 
+					account.childrenArray(accountModel.id)
+				)
+			);				
 		});
-    });  
+    });
+     
 }
 
 inviteTool = new InviteTool;
