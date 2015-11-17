@@ -14,6 +14,9 @@ Account.prototype.item = function(id, name, children){
 	this.id = id;
 	this.name = name;
 	this.children = ko.observableArray(children);
+	this.addGuest = function(){
+		console.log("this account id is: " + this.id);
+	}
 }
 
 Invitee.prototype.item = function(id, first_name, last_name, email) {
@@ -57,6 +60,7 @@ InviteTool.prototype.viewModel = function(){
 			);
 		});
     });
+
 }
 
 inviteTool = new InviteTool;
