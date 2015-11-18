@@ -17,3 +17,10 @@ def getInviteeCollection():
 		json.append({'id': row.id, 'first_name': row.first_name, 'last_name': row.last_name, 'email': row.email})
 		
 	return response.json(json)
+	
+def postInvitee():
+    form = SQLFORM(db.invitees)
+    if form.accepts(request, formname=None):
+        return DIV("Message posted")
+    elif form.errors:
+        return TABLE(*[TR(k, v) for k, v in form.errors.items()])

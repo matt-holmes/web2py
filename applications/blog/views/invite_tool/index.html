@@ -11,15 +11,15 @@
 		<div class="form-inline">
 	  		<div class="form-group">
 				<label for="first_name">First Name</label>
-				<input type="text" class="form-control" id="first_name">
+				<input data-bind="textInput: first_name" type="text" class="form-control" id="first_name">
 	  		</div>
 	 		<div class="form-group">
 				<label for="last_name">Last Name</label>
-				<input type="text" class="form-control" id="last_name">
+				<input data-bind="textInput: last_name" type="text" class="form-control" id="last_name">
 	  		</div>
 	  		<div class="form-group">
 				<label for="email">Email</label>
-				<input type="email" class="form-control" id="email">
+				<input data-bind="textInput: email" type="email" class="form-control" id="email">
 	  		</div>
 	 		<button class="btn btn-primary" data-bind="click: addGuest">Add Guest</button>
 		</div>
@@ -35,7 +35,7 @@
 	<div class="invitee-container">
 		<hr>
 		<div class="row">
-			<div class="col-md-10">
+			<div class="col-md-10 saved-invitee">
 				<h5><span data-bind="text: first_name"></span> <span data-bind="text: last_name"></span> <span data-bind="text: email"></span></h5>
 			</div>
 			<div class="col-md-2">

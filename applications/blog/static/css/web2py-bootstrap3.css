@@ -336,12 +336,13 @@ input[type=checkbox], input[type=radio] {
 
 .invitee-container{
   	max-width: 1000px;
-  	margin-top: 25px;
 	margin-right: 50px;
 	margin-left: 50px;
-	margin-bottom: 25px;
-    background-color:  #FFFFFF;
-	padding: 10px;
+    background-color:  #FBFBFB;
+}
+
+.saved-invitee {
+	padding-left: 50px;
 }
 
 hr {
