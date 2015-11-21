@@ -34,7 +34,7 @@
 <script type="text/html" id="invitee-template">
 	<div class="invitee-container">
 		<hr>
-		<div class="row">
+		<div class="row" data-bind="attr: { id: 'invitee-' + id }">
 			<div class="col-md-10 saved-invitee">
 				<h5><span data-bind="text: first_name"></span> <span data-bind="text: last_name"></span> <span data-bind="text: email"></span></h5>
 			</div>

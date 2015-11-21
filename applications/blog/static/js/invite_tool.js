@@ -29,6 +29,7 @@ Account.prototype.save = function(account){
   		{account_id: account.id, first_name: account.first_name, last_name: account.last_name, email: account.email},
   		function(result){
   			account.children.push(new invitee.item(
+  					result[0].id,
 					account.first_name,
 					account.last_name,
 					account.email
@@ -45,6 +46,7 @@ Account.prototype.initializeFormFields = function(account){
 }
 
 Invitee.prototype.item = function(id, first_name, last_name, email) {
+	this.id = id;
 	this.first_name = first_name;
 	this.last_name = last_name;
 	this.email = email;
@@ -58,6 +60,7 @@ Account.prototype.childrenArray = function(accountId){
 		_.each(invData, function(inviteeModel){
 			children.push(
 				new invitee.item(
+					inviteeModel.id,
 					inviteeModel.first_name,
 					inviteeModel.last_name,
 					inviteeModel.email

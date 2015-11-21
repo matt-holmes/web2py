@@ -1,4 +1,4 @@
-
+import uuid
 def index():
     return locals()	
 	
@@ -14,13 +14,17 @@ def getInviteeCollection():
 	json = []
 	rows = db(db.invitees.account_id.contains(request.args)).select(orderby=db.invitees.first_name)
 	for row in rows:
-		json.append({'id': row.id, 'first_name': row.first_name, 'last_name': row.last_name, 'email': row.email})
+		json.append({'id': row.uuid, 'first_name': row.first_name, 'last_name': row.last_name, 'email': row.email})
 		
 	return response.json(json)
 	
 def postInvitee():
     form = SQLFORM(db.invitees)
+    id = str(uuid.uuid1())
+    json = []
+    request.post_vars.uuid = id
     if form.accepts(request, formname=None):
-        return DIV("Message posted")
+        json.append({'id': id})
+        return response.json(json)
     elif form.errors:
         return TABLE(*[TR(k, v) for k, v in form.errors.items()])

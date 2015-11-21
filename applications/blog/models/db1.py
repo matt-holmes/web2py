@@ -10,6 +10,7 @@ db.define_table('accounts',
 
 db.define_table('invitees',
  Field('id',requires=IS_NOT_EMPTY()),
+  Field('uuid',requires=IS_NOT_EMPTY()),
  Field('account_id',requires=IS_NOT_EMPTY()),
  Field('first_name',requires=IS_NOT_EMPTY()),
  Field('last_name',requires=IS_NOT_EMPTY()),
