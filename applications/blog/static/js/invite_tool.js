@@ -25,31 +25,31 @@ Account.prototype.item = function(id, name, children){
 
 Account.prototype.save = function(account){
 	var invitee = new Invitee;
+	var accountObj = new Account();
 	$.post("postInvitee", 
   		{account_id: account.id, first_name: account.first_name, last_name: account.last_name, email: account.email},
   		function(result){
-  			account.children.push(new invitee.item(
-  					result[0].id,
-					account.first_name,
-					account.last_name,
-					account.email
-				)
-			);
+  			if(result !== 'False'){
+	  			account.children.push(new invitee.item(
+	  					result[0].id,
+						account.first_name,
+						account.last_name,
+						account.email
+					)
+				);
+				accountObj.clearForm(account.id, account);
+			}
 		}
 	);
 }
 
-Account.prototype.initializeFormFields = function(account){
+Account.prototype.clearForm = function(id, account){
 	account.first_name = '';
 	account.last_name = '';
 	account.email = '';
-}
-
-Invitee.prototype.item = function(id, first_name, last_name, email) {
-	this.id = id;
-	this.first_name = first_name;
-	this.last_name = last_name;
-	this.email = email;
+	$('#first_name-' + id).val('');
+	$('#last_name-' + id).val('');
+	$('#email-' + id).val('');
 }
 
 Account.prototype.childrenArray = function(accountId){
@@ -69,6 +69,29 @@ Account.prototype.childrenArray = function(accountId){
 		});
 	});
 	return children;
+}	
+
+Invitee.prototype.item = function(id, first_name, last_name, email) {
+	this.id = id;
+	this.first_name = first_name;
+	this.last_name = last_name;
+	this.email = email;
+	this.deleteGuest = function(){
+		var invitee = new Invitee();
+		invitee.delete(this.id);
+	}
+}
+
+
+Invitee.prototype.delete = function(id){
+	var account = new Account();
+	var invitee = new Invitee;
+	$.post("deleteInvitee", 
+  		{id: id},
+  		function(result){
+  			$('#invitee-' + id).hide();
+		}	
+	);
 }
 
 InviteTool.prototype.viewModel = function(){

@@ -80,3 +80,6 @@ CREATE TABLE invitees(
     email CHAR(512)
 );
 success!
+timestamp: 2015-11-21T14:34:51.273331
+ALTER TABLE invitees ADD uuid CHAR(512);
+success!

@@ -27,4 +27,8 @@ def postInvitee():
         json.append({'id': id})
         return response.json(json)
     elif form.errors:
-        return TABLE(*[TR(k, v) for k, v in form.errors.items()])
+        return False
+        
+def deleteInvitee():
+    db(db.invitees.uuid == request.post_vars.id).delete()
+    return True

@@ -11,35 +11,31 @@
 		<div class="form-inline">
 	  		<div class="form-group">
 				<label for="first_name">First Name</label>
-				<input data-bind="textInput: first_name" type="text" class="form-control" id="first_name">
+				<input data-bind="textInput: first_name, attr: { id: 'first_name-' + id }" type="text" class="form-control">
 	  		</div>
 	 		<div class="form-group">
 				<label for="last_name">Last Name</label>
-				<input data-bind="textInput: last_name" type="text" class="form-control" id="last_name">
+				<input data-bind="textInput: last_name, attr: { id: 'last_name-' + id }" type="text" class="form-control" id="last_name">
 	  		</div>
 	  		<div class="form-group">
 				<label for="email">Email</label>
-				<input data-bind="textInput: email" type="email" class="form-control" id="email">
+				<input data-bind="textInput: email, attr: { id: 'email-' + id }" type="email" class="form-control" id="email">
 	  		</div>
 	 		<button class="btn btn-primary" data-bind="click: addGuest">Add Guest</button>
-		</div>
-		<div class="invitee-container" data-bind="visible: children().length < 1">
-			<hr>
-    		<h5>No one invited yet</h5>
 		</div>
 		<div data-bind="template:{ name: 'invitee-template', foreach: children }"></div>
 	</div>
 </script>
 
 <script type="text/html" id="invitee-template">
-	<div class="invitee-container">
+	<div class="invitee-container" data-bind="attr: { id: 'invitee-' + id }">
 		<hr>
-		<div class="row" data-bind="attr: { id: 'invitee-' + id }">
+		<div class="row">
 			<div class="col-md-10 saved-invitee">
 				<h5><span data-bind="text: first_name"></span> <span data-bind="text: last_name"></span> <span data-bind="text: email"></span></h5>
 			</div>
 			<div class="col-md-2">
-				<button class="btn btn-warning">Delete</button>
+				<button class="btn btn-warning" data-bind="click: deleteGuest">Delete</button>
 			</div>
 		</div>
 		<hr>
