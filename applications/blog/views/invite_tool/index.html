@@ -1,13 +1,13 @@
 {{extend 'layout.html'}}
 
 <div class="invite-tool">
-<h2>Invitation Tool</h2>
+<h2>Invite Tool</h2>
 	<div data-bind="template:{ name: 'account-template', foreach: accountsArray }"></div>
 </div>
 
 <script type="text/html" id="account-template">
 	<div class="account-container" data-bind="attr: { id: 'account-' + id }">
-		<div><h4 data-bind="text: name"></h4></div>
+		<div><h4 data-bind="text: name + ' -- You can invite up to 4 guests'"></h4></div>
 		<div class="form-inline">
 	  		<div class="form-group">
 				<label for="first_name">First Name</label>
@@ -21,9 +21,18 @@
 				<label for="email">Email</label>
 				<input data-bind="textInput: email, attr: { id: 'email-' + id }" type="email" class="form-control" id="email">
 	  		</div>
-	 		<button class="btn btn-primary" data-bind="click: addGuest">Add Guest</button>
+	 		<button class="btn btn-primary" data-bind="click: addGuest, enable: children().length < 4">Add Guest</button>
 		</div>
 		<div data-bind="template:{ name: 'invitee-template', foreach: children }"></div>
+		<div class="invitee-container" data-bind="visible: children().length < 1">
+			<hr>
+			<div class="row">
+				<div class="none-invited">
+		 			<h5>No one invited yet</h5>
+		 		</div>
+     		</div>
+     		<hr>
+ 		</div>
 	</div>
 </script>
 

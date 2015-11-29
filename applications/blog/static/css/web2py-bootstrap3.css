@@ -341,7 +341,7 @@ input[type=checkbox], input[type=radio] {
     background-color:  #FBFBFB;
 }
 
-.saved-invitee {
+.saved-invitee, .none-invited{
 	padding-left: 50px;
 }
 
