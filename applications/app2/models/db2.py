@@ -1,1 +1,0 @@
-db.define_table('blog_post', Field('body'))

@@ -25,7 +25,8 @@ response.google_analytics_id = None
 
 response.menu = [
     (T('Home'), False, URL('default', 'index'), []),
-    (T('Invite Tool'), False, URL('invite_tool', 'index'), [])
+    (T('Invite Tool'), False, URL('invite_tool', 'index'), []),
+    (T('Invite Tool Vanilla JS'), False, URL('invite_tool_vanilla', 'index'), []),
 ]
 
 DEVELOPMENT_MENU = True
